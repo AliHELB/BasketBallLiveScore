@@ -1,0 +1,25 @@
+<!-- create-team.component.html -->
+<div class="create-team-form">
+  <h2>Créer une équipe</h2>
+  <form (ngSubmit)="createTeam()">
+    <div class="form-group">
+      <label for="teamName">Nom de l'équipe</label>
+      <input type="text"
+             id="teamName"
+             class="form-control"
+             [(ngModel)]="teamName"
+             name="teamName"
+             required />
+    </div>
+    <div class="form-group">
+      <label for="coachName">Nom du coach</label>
+      <input type="text"
+             id="coachName"
+             class="form-control"
+             [(ngModel)]="coachName"
+             name="coachName"
+             required />
+    </div>
+    <button type="submit" class="btn btn-primary">Créer</button>
+  </form>
+</div>

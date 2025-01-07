@@ -1,0 +1,59 @@
+<div class="create-match">
+  <h2>Créer un Match</h2>
+  <form [formGroup]="matchForm" (ngSubmit)="onSubmit()">
+    <!-- Formulaire de match existant -->
+    <div>
+      <label for="quarters">Nombre de quarts :</label>
+      <input id="quarters" type="number" formControlName="quarters" />
+    </div>
+    <div>
+      <label for="quarterDuration">Durée des quarts (en minutes) :</label>
+      <input id="quarterDuration" type="number" formControlName="quarterDuration" />
+    </div>
+    <div>
+      <label for="timeoutDuration">Durée des temps morts (en secondes) :</label>
+      <input id="timeoutDuration" type="number" formControlName="timeoutDuration" />
+    </div>
+    <div>
+      <label for="homeTeamId">Équipe à domicile :</label>
+      <select id="homeTeamId" formControlName="homeTeamId">
+        <option *ngFor="let team of teams" [value]="team.teamId">{{ team.teamName }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="awayTeamId">Équipe à l'extérieur :</label>
+      <select id="awayTeamId" formControlName="awayTeamId">
+        <option *ngFor="let team of teams" [value]="team.teamId">{{ team.teamName }}</option>
+      </select>
+    </div>
+    <p *ngIf="isSameTeam()" class="error">Les deux équipes ne peuvent pas être identiques.</p>
+
+    <!-- Liste des joueurs pour chaque équipe -->
+    <div *ngIf="playersHomeTeam.length">
+      <h3>Joueurs de l'équipe à domicile</h3>
+      <div *ngFor="let player of playersHomeTeam">
+        <input type="checkbox" [checked]="selectedHomePlayers.includes(player.playerId)"
+               (change)="togglePlayerSelection(player.playerId, true)" />
+        {{ player.firstName }} {{ player.lastName }} ({{ player.playerNumber }})
+      </div>
+    </div>
+
+    <div *ngIf="playersAwayTeam.length">
+      <h3>Joueurs de l'équipe à l'extérieur</h3>
+      <div *ngFor="let player of playersAwayTeam">
+        <input type="checkbox" [checked]="selectedAwayPlayers.includes(player.playerId)"
+               (change)="togglePlayerSelection(player.playerId, false)" />
+        {{ player.firstName }} {{ player.lastName }} ({{ player.playerNumber }})
+      </div>
+    </div>
+
+    <!-- Message d'erreur si les conditions ne sont pas remplies -->
+    <p *ngIf="selectedHomePlayers.length !== 5 || selectedAwayPlayers.length !== 5" class="error">
+      Vous devez sélectionner exactement 5 joueurs pour chaque équipe.
+    </p>
+
+    <button type="submit" [disabled]="isSubmitting || matchForm.invalid || selectedHomePlayers.length !== 5 || selectedAwayPlayers.length !== 5">
+      Créer le Match et Starting Five
+    </button>
+  </form>
+</div>

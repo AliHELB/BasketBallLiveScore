@@ -1,0 +1,167 @@
+<div class="header-container">
+  <div class="quarter-container">
+    <h3>Quarter : {{ quarter }}</h3>
+  </div>
+
+  <div class="active-players-summary">
+    <div class="active-players home-team">
+      <h4>Équipe à Domicile</h4>
+      <ul>
+        <li *ngFor="let playerId of activeHomePlayers">
+          {{ getPlayerName(playerId) }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="active-players away-team">
+      <h4>Équipe Adverse</h4>
+      <ul>
+        <li *ngFor="let playerId of activeAwayPlayers">
+          {{ getPlayerName(playerId) }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timer-container">
+    <h2>Timer : {{ formatTimer(timer) }}</h2>
+  </div>
+</div>
+
+
+<div class="teams-container">
+  <!-- Équipe à Domicile -->
+  <div class="team-section home-team">
+    <h2>Equipe à domicile : {{ homeScore }} Points</h2>
+
+    <!-- Changements de joueurs -->
+    <h3>Changements</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur Sortant</th>
+          <th>Joueur Entrant</th>
+          <th>Quart</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let substitution of homeSubstitutions">
+          <td>{{ getPlayerName(substitution.playerOutId) }}</td>
+          <td>{{ getPlayerName(substitution.playerInId) }}</td>
+          <td>{{ substitution.quarter }}</td>
+          <td>{{ formatTimer(substitution.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Paniers -->
+    <h3>Paniers</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur</th>
+          <th>Quart</th>
+          <th>Points</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let basket of homeBaskets">
+          <td>{{ getPlayerName(basket.playerId) }}</td>
+          <td>{{ basket.quarter }}</td>
+          <td>{{ basket.points }}</td>
+          <td>{{ formatTimer(basket.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Fautes -->
+    <h3>Fautes</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur</th>
+          <th>Quart</th>
+          <th>Type</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let fault of homeFaults">
+          <td>{{ getPlayerName(fault.playerId) }}</td>
+          <td>{{ fault.quarter }}</td>
+          <td>{{ fault.faultType }}</td>
+          <td>{{ formatTimer(fault.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Équipe Adverse -->
+  <div class="team-section away-team">
+    <h2>Equipe adverse : {{ awayScore }} Points</h2>
+
+    <!-- Changements de joueurs -->
+    <h3>Changements</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur Sortant</th>
+          <th>Joueur Entrant</th>
+          <th>Quart</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let substitution of awaySubstitutions">
+          <td>{{ getPlayerName(substitution.playerOutId) }}</td>
+          <td>{{ getPlayerName(substitution.playerInId) }}</td>
+          <td>{{ substitution.quarter }}</td>
+          <td>{{ formatTimer(substitution.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Paniers -->
+    <h3>Paniers</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur</th>
+          <th>Quart</th>
+          <th>Points</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let basket of awayBaskets">
+          <td>{{ getPlayerName(basket.playerId) }}</td>
+          <td>{{ basket.quarter }}</td>
+          <td>{{ basket.points }}</td>
+          <td>{{ formatTimer(basket.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Fautes -->
+    <h3>Fautes</h3>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Joueur</th>
+          <th>Quart</th>
+          <th>Type</th>
+          <th>Timer</th>
+        </tr>
+      </thead>
+      <tbody class="scrollable-tbody">
+        <tr *ngFor="let fault of awayFaults">
+          <td>{{ getPlayerName(fault.playerId) }}</td>
+          <td>{{ fault.quarter }}</td>
+          <td>{{ fault.faultType }}</td>
+          <td>{{ formatTimer(fault.timer) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

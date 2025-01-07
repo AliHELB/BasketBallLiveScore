@@ -1,0 +1,29 @@
+<div class="viewer-page">
+  <h1 class="page-title">Liste des Matchs</h1>
+  <div class="table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Équipe à Domicile</th>
+          <th>Équipe Adverse</th>
+          <th>Durée Quarts (min)</th>
+          <th>Nombre de Quarts</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let match of matches">
+          <td>{{ getTeamName(match.homeTeamId) }}</td>
+          <td>{{ getTeamName(match.awayTeamId) }}</td>
+          <td>{{ match.quarterDuration }}</td>
+          <td>{{ match.numberOfQuarters }}</td>
+          <td>
+            <button class="btn-view-match" [routerLink]="['/view-match', match.matchId]">
+              Voir le match
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

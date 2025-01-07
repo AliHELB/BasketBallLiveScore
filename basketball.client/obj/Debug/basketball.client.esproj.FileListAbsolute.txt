@@ -1,0 +1,2 @@
+C:\Users\alida\source\repos\BasketBall\basketball.client\obj\Debug\basketball.client.esproj.CoreCompileInputs.cache
+C:\Users\alida\Documents\GitHub\BasketBallLiveScore\basketball.client\obj\Debug\basketball.client.esproj.CoreCompileInputs.cache

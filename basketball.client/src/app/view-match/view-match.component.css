@@ -1,0 +1,115 @@
+/* Conteneur principal pour le Quarter, Timer et Joueurs Actifs */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Ajuste l'affichage sur petits écrans */
+}
+
+.quarter-container,
+.timer-container {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.active-players-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 0 20px;
+  flex-grow: 1; /* Prend l'espace disponible entre Quarter et Timer */
+}
+
+.active-players {
+  font-size: 0.9rem; /* Réduire la taille de la police */
+  text-align: center;
+}
+
+  .active-players h4 {
+    margin-bottom: 5px; /* Réduire l'espacement entre le titre et les joueurs */
+    font-size: 1rem;
+    color: #009879;
+  }
+
+  .active-players ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .active-players li {
+    line-height: 1.2; /* Réduire la hauteur des lignes */
+    font-size: 0.85rem; /* Réduire légèrement la taille de la police */
+  }
+
+/* Conteneur des équipes */
+.teams-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.team-section {
+  width: 48%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+  .team-section h2 {
+    text-align: center;
+    color: #009879;
+    margin-bottom: 10px;
+  }
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+  .styled-table thead tr {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+
+  .styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+.scrollable-tbody {
+  display: block; /* Nécessaire pour activer le défilement */
+  max-height: 113px; /* Ajustez la hauteur selon vos besoins */
+  overflow-y: auto; /* Défilement vertical */
+  overflow-x: hidden; /* Supprime le défilement horizontal */
+}
+
+.styled-table thead,
+.styled-table tbody tr {
+  display: table; /* Conserve le comportement en tableau pour les enfants */
+  table-layout: fixed; /* Assure un alignement uniforme des colonnes */
+  width: 100%; /* Évite les décalages entre thead et tbody */
+}
+
+.styled-table {
+  width: 100%; /* Fixe la largeur globale du tableau */
+  border-collapse: collapse; /* Évite les espaces entre les bordures */
+}

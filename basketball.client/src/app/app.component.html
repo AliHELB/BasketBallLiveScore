@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <span class="emoji">🏀</span>
+    <span>Basketball LiveScore</span>
+  </div>
+  <div class="navbar-links">
+    <button *ngIf="isAuthenticated && (isAdmin || isEncoder)" routerLink="/encoder" class="btn">Encoder <br /> un match</button>
+    <button *ngIf="isAuthenticated && (isAdmin || isEncoder || isViewer)" routerLink="/viewer" class="btn">Regarder <br /> un match</button>
+    <button *ngIf="isAuthenticated && isAdmin" routerLink="/create-team" class="btn">Créer <br /> Une Équipe</button>
+    <button *ngIf="isAuthenticated && isAdmin" routerLink="/create-match" class="btn">Créer <br /> un Match</button>
+    <button *ngIf="isAuthenticated && isAdmin" routerLink="/create-player" class="btn">Créer un <br /> Joueur</button>
+    <button *ngIf="isAuthenticated && isAdmin" routerLink="/manage-roles" class="btn">Gérer <br />  les rôles</button>
+    <button *ngIf="!isAuthenticated" routerLink="/auth" class="btn">Login</button>
+    <button *ngIf="isAuthenticated" (click)="logout()" class="btn btn-danger">Logout</button>
+  </div>
+</nav>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

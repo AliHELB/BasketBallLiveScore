@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:50985",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\alida\\Documents\\GitHub\\BasketBallLiveScore\\BasketBall.Server\\..\\basketball.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

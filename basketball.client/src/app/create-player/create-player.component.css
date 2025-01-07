@@ -1,0 +1,154 @@
+.create-player-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+  form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+label {
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 1rem;
+}
+
+input,
+select {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+  input:focus,
+  select:focus {
+    border-color: #4299e1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  }
+
+  input:hover,
+  select:hover {
+    border-color: #cbd5e0;
+  }
+
+  /* Specific styling for number input */
+  input[type="number"] {
+    width: 120px;
+  }
+
+    /* Remove number input arrows */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+select {
+  cursor: pointer;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+  button:hover:not(:disabled) {
+    background-color: #3182ce;
+    transform: translateY(-1px);
+  }
+
+  button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  button:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+  }
+
+/* Validation states */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #fc8181;
+}
+
+  input.ng-invalid.ng-touched:focus,
+  select.ng-invalid.ng-touched:focus {
+    box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.15);
+  }
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched {
+  border-color: #68d391;
+}
+
+  input.ng-valid.ng-touched:focus,
+  select.ng-valid.ng-touched:focus {
+    box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.15);
+  }
+
+/* Error messages */
+.error-message {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  form > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  label {
+    width: 160px;
+    margin-bottom: 0;
+  }
+
+  input,
+  select {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  button {
+    align-self: flex-end;
+  }
+}

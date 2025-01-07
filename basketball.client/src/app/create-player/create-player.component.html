@@ -1,0 +1,64 @@
+<div class="create-player-container">
+  <h2>Créer un joueur</h2>
+  <form (ngSubmit)="onSubmit()" #playerForm="ngForm">
+    <div>
+      <label for="firstName">Prénom :</label>
+      <input type="text"
+             id="firstName"
+             name="firstName"
+             [(ngModel)]="player.firstName"
+             required
+             #firstName="ngModel" />
+      <span class="error-message" *ngIf="firstName.invalid && firstName.touched">
+        Le prénom est requis
+      </span>
+    </div>
+
+    <div>
+      <label for="lastName">Nom :</label>
+      <input type="text"
+             id="lastName"
+             name="lastName"
+             [(ngModel)]="player.lastName"
+             required
+             #lastName="ngModel" />
+      <span class="error-message" *ngIf="lastName.invalid && lastName.touched">
+        Le nom est requis
+      </span>
+    </div>
+
+    <div>
+      <label for="playerNumber">Numéro de maillot :</label>
+      <input type="number"
+             id="playerNumber"
+             name="playerNumber"
+             [(ngModel)]="player.playerNumber"
+             required
+             min="0"
+             max="99"
+             #playerNumber="ngModel" />
+      <span class="error-message" *ngIf="playerNumber.invalid && playerNumber.touched">
+        Le numéro doit être entre 0 et 99
+      </span>
+    </div>
+
+    <div>
+      <label for="team">Équipe :</label>
+      <select id="team"
+              name="team"
+              [(ngModel)]="player.teamId"
+              required
+              #team="ngModel">
+        <option value="">Sélectionner une équipe</option>
+        <option *ngFor="let team of teams" [value]="team.teamId">
+          {{ team.teamName }}
+        </option>
+      </select>
+      <span class="error-message" *ngIf="team.invalid && team.touched">
+        L'équipe est requise
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="playerForm.invalid">Créer le joueur</button>
+  </form>
+</div>

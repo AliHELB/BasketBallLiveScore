@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBall.Server", "BasketBall.Server\BasketBall.Server.csproj", "{3082EE33-9640-4195-996C-6682983A98FB}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "basketball.client", "basketball.client\basketball.client.esproj", "{5C5259BE-E3BD-4537-944B-32C56C36695C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3082EE33-9640-4195-996C-6682983A98FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3082EE33-9640-4195-996C-6682983A98FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3082EE33-9640-4195-996C-6682983A98FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3082EE33-9640-4195-996C-6682983A98FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5259BE-E3BD-4537-944B-32C56C36695C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,186 @@
+<div class="match-events-page">
+  <!-- Timer et Quart sur une seule ligne -->
+  <div class="quarter-timer">
+    <h3>Quarter : {{ quarter }}</h3>
+    <h2>Timer : {{ formatTimer(timer) }}</h2>
+    <div class="timer-buttons">
+      <button (click)="startTimer()">Play</button>
+      <button (click)="pauseTimer()">Pause</button>
+    </div>
+  </div>
+
+  <!-- Conteneur principal des formulaires -->
+  <div class="teams-container">
+    <!-- Formulaires pour l'équipe à domicile -->
+    <div class="team-forms home-team">
+      <h2>Équipe à Domicile</h2>
+
+      <!-- Formulaire pour les changements de joueurs -->
+      <div class="form-section">
+        <h3>Changements de Joueurs</h3>
+        <form>
+          <div class="form-row">
+            <label for="homeOutPlayer">Sortant :</label>
+            <select id="homeOutPlayer" [(ngModel)]="changeOutHomePlayer" name="homeOutPlayer">
+              <option *ngFor="let player of activeHomePlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="homeInPlayer">Entrant :</label>
+            <select id="homeInPlayer" [(ngModel)]="changeInHomePlayer" name="homeInPlayer">
+              <option *ngFor="let player of availableHomePlayers" [value]="player.playerId">
+                {{ player.firstName }} {{ player.lastName }}
+              </option>
+            </select>
+            <button (click)="submitPlayerChange('home')">Valider</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulaire pour ajouter un panier -->
+      <div class="form-section">
+        <h3>Ajouter un Panier</h3>
+        <form (submit)="addBasketEvent('home')">
+          <div class="form-row">
+            <label for="homePlayerBasket">Joueur :</label>
+            <select id="homePlayerBasket" [(ngModel)]="selectedHomePlayerBasket" name="homePlayerBasket" required>
+              <option *ngFor="let player of activeHomePlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="homePoints">Points :</label>
+            <select id="homePoints" [(ngModel)]="points" name="homePoints" required>
+              <option *ngFor="let point of [1, 2, 3]" [value]="point">{{ point }}</option>
+            </select>
+            <button type="submit">Ajouter</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulaire pour ajouter une faute -->
+      <div class="form-section">
+        <h3>Ajouter une Faute</h3>
+        <form (submit)="addFaultEvent('home')">
+          <div class="form-row">
+            <label for="homePlayerFault">Joueur :</label>
+            <select id="homePlayerFault" [(ngModel)]="selectedHomePlayerFault" name="homePlayerFault" required>
+              <option *ngFor="let player of activeHomePlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="homeFaultType">Type :</label>
+            <select id="homeFaultType" [(ngModel)]="faultType" name="homeFaultType" required>
+              <option *ngFor="let fault of ['P0', 'P1', 'P2', 'P3']" [value]="fault">
+                {{ fault }}
+              </option>
+            </select>
+            <button type="submit">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Formulaires pour l'équipe adverse -->
+    <div class="team-forms away-team">
+      <h2>Équipe Adverse</h2>
+
+      <!-- Formulaire pour les changements de joueurs -->
+      <div class="form-section">
+        <h3>Changements de Joueurs</h3>
+        <form>
+          <div class="form-row">
+            <label for="awayOutPlayer">Sortant :</label>
+            <select id="awayOutPlayer" [(ngModel)]="changeOutAwayPlayer" name="awayOutPlayer">
+              <option *ngFor="let player of activeAwayPlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="awayInPlayer">Entrant :</label>
+            <select id="awayInPlayer" [(ngModel)]="changeInAwayPlayer" name="awayInPlayer">
+              <option *ngFor="let player of availableAwayPlayers" [value]="player.playerId">
+                {{ player.firstName }} {{ player.lastName }}
+              </option>
+            </select>
+            <button (click)="submitPlayerChange('away')">Valider</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulaire pour ajouter un panier -->
+      <div class="form-section">
+        <h3>Ajouter un Panier</h3>
+        <form (submit)="addBasketEvent('away')">
+          <div class="form-row">
+            <label for="awayPlayerBasket">Joueur :</label>
+            <select id="awayPlayerBasket" [(ngModel)]="selectedAwayPlayerBasket" name="awayPlayerBasket" required>
+              <option *ngFor="let player of activeAwayPlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="awayPoints">Points :</label>
+            <select id="awayPoints" [(ngModel)]="points" name="awayPoints" required>
+              <option *ngFor="let point of [1, 2, 3]" [value]="point">{{ point }}</option>
+            </select>
+            <button type="submit">Ajouter</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulaire pour ajouter une faute -->
+      <div class="form-section">
+        <h3>Ajouter une Faute</h3>
+        <form (submit)="addFaultEvent('away')">
+          <div class="form-row">
+            <label for="awayPlayerFault">Joueur :</label>
+            <select id="awayPlayerFault" [(ngModel)]="selectedAwayPlayerFault" name="awayPlayerFault" required>
+              <option *ngFor="let player of activeAwayPlayers" [value]="player.playerId">
+                {{ player.fullName }}
+              </option>
+            </select>
+            <label for="awayFaultType">Type :</label>
+            <select id="awayFaultType" [(ngModel)]="faultType" name="awayFaultType" required>
+              <option *ngFor="let fault of ['P0', 'P1', 'P2', 'P3']" [value]="fault">
+                {{ fault }}
+              </option>
+            </select>
+            <button type="submit">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="events-lists">
+  <div class="events-container">
+    <!-- Colonne des Changements -->
+    <div class="events-column">
+      <h2>Changements</h2>
+      <ul>
+        <li *ngFor="let change of substitutions">
+          Sortant : {{ getPlayerName(change.playerOutId) }}, Entrant : {{ getPlayerName(change.playerInId) }},
+          Quarter : {{ change.quarter }}, Timer : {{ formatTimer(change.timer) }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Colonne des Paniers -->
+    <div class="events-column">
+      <h2>Paniers</h2>
+      <ul>
+        <li *ngFor="let basket of baskets">
+          Joueur : {{ getPlayerName(basket.playerId) }}, Quarter : {{ basket.quarter }}, Points : {{ basket.points }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Colonne des Fautes -->
+    <div class="events-column">
+      <h2>Fautes</h2>
+      <ul>
+        <li *ngFor="let fault of faults">
+          Joueur : {{ getPlayerName(fault.playerId) }}, Quarter : {{ fault.quarter }}, Type : {{ fault.faultType }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

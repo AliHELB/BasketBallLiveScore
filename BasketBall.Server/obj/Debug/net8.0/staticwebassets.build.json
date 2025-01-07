@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "wEcyvuYBFr0Mnz8lMeBr+VLKVmOeTNfvQMHGO4bbk6M=",
+  "Source": "BasketBall.Server",
+  "BasePath": "_content/BasketBall.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\alida\\Documents\\GitHub\\BasketBallLiveScore\\basketball.client\\basketball.client.esproj",
+      "Version": 2,
+      "Source": "basketball.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
